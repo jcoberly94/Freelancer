@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  {{#link-to 'index' class="navbar-brand logo"}}Freelance{{/link-to}}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      {{#link-to 'find-work' class="nav-item" tagName="li"}}
+      <a class="nav-link" href="">Find Work</a>{{/link-to}} 
+      {{#link-to 'how-it-works' class="nav-item" tagName="li"}}
+      <a class="nav-link" href="">How It Works</a>{{/link-to}} 
+      {{#link-to 'sign-up' class="nav-item" tagName="li"}}
+      <a class="nav-link" href="">Sign Up</a>{{/link-to}} 
+      {{#link-to 'login' class="nav-item" tagName="li"}}
+      <a class="nav-link" href="">Login</a>{{/link-to}}
+    </ul>
+    
+    <form class="form-inline my-2 my-lg-0" style="padding-right: 25px;">
+      <button class="btn btn-outline-success" type="button">Post a Job</button>
+    </form>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search Jobs" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>

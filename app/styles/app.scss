@@ -1,0 +1,21 @@
+//CSS FOR EXTERNAL CSS FILES
+@import "ember-cli-bootstrap-4/bootstrap";
+@import "https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css";
+@import "https://fonts.googleapis.com/css?family=Pacifico";
+
+
+//CSS FOR GLOBAL VARIABLES
+@import "defaults/buttons.scss";
+
+
+//CSS FOR COMPONENTS
+@import "components/header.scss";
+@import "components/footer.scss";
+
+
+//CSS FOR INDIVIDUAL PAGES
+@import "pages/index.scss";
+@import "pages/how-it-works";
+@import "pages/login";
+@import "pages/sign-up.scss";
+@import "pages/find-work.scss";

@@ -59,22 +59,24 @@
           <legend class="col-form-label col-sm-2 pt-0">Account Type</legend>
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              {{#radio-button value="freelancer" groupValue=accountType changed="radioChange"}}{{/radio-button}}
               <label class="form-check-label" for="gridRadios1">
                 I'm a Freelancer
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              {{#radio-button value="client" groupValue=accountType changed="radioChange"}}{{/radio-button}}
               <label class="form-check-label" for="gridRadios2">
                 I'm a Client
               </label>
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" {{action 'signUp' first last email password address address2 city zip}}>Sign Up</button>
+        <button type="submit" class="btn btn-primary" {{action 'signUp' first last email password address address2 city zip accountType}}>Sign Up</button>
       </form>
     </div>
   </section>
 
 </section>
+
+{{input type='radio' class='form-check-input' name='accountType' value=freelancer}}

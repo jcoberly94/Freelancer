@@ -8,5 +8,6 @@ export default DS.Model.extend({
     address: DS.attr('string'),
     address2: DS.attr('string'),
     city: DS.attr('string'),
-    zip: DS.attr('string')
+    zip: DS.attr('string'),
+    type: DS.attr('string')
 });

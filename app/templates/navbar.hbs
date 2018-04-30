@@ -13,8 +13,12 @@
       <a class="nav-link" href="">How It Works</a>{{/link-to}} 
       {{#link-to 'sign-up' class="nav-item" tagName="li"}}
       <a class="nav-link" href="">Sign Up</a>{{/link-to}} 
+      {{#if session.isAuthenticated}}
+        <button {{action 'logout'}}>Logout</button>
+        {{else}}
       {{#link-to 'login' class="nav-item" tagName="li"}}
       <a class="nav-link" href="">Login</a>{{/link-to}}
+      {{/if}}
     </ul>
     
     <form class="form-inline my-2 my-lg-0" style="padding-right: 25px;">

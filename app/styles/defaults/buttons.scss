@@ -24,3 +24,12 @@ $button-primary-hover: #27ae60;
   background-color: $button-primary-hover;
   border-color: $button-primary-hover;
 }
+
+.post-job {
+  text-decoration: none;
+  color: $button-primary-hover;
+}
+.post-job:hover {
+  text-decoration: none;
+  color: #fff;
+}

@@ -11,18 +11,18 @@
       <a class="nav-link" href="">Find Work</a>{{/link-to}} 
       {{#link-to 'how-it-works' class="nav-item" tagName="li"}}
       <a class="nav-link" href="">How It Works</a>{{/link-to}} 
-      {{#link-to 'sign-up' class="nav-item" tagName="li"}}
-      <a class="nav-link" href="">Sign Up</a>{{/link-to}} 
+
       {{#if session.isAuthenticated}}
-        <button {{action 'logout'}}>Logout</button>
-        {{else}}
-      {{#link-to 'login' class="nav-item" tagName="li"}}
-      <a class="nav-link" href="">Login</a>{{/link-to}}
+        {{#link-to 'account' class="nav-item" tagName="li"}}<a class="nav-link" href="">My Account</a>{{/link-to}}
+        {{#link-to 'logout' class= "nav-item" tagName="li" }}<a class="nav-link" href="">Logout</a>{{/link-to}}
+      {{else}}
+        {{#link-to 'sign-up' class="nav-item" tagName="li"}}<a class="nav-link" href="">Sign Up</a>{{/link-to}} 
+        {{#link-to 'login' class="nav-item" tagName="li"}}<a class="nav-link" href="">Login</a>{{/link-to}}
       {{/if}}
     </ul>
     
     <form class="form-inline my-2 my-lg-0" style="padding-right: 25px;">
-      <button class="btn btn-outline-success" type="button">Post a Job</button>
+      <button class="btn btn-outline-success" type="button">{{#link-to 'post-job' class="post-job"}}Post a Job{{/link-to}}</button>
     </form>
 
     <form class="form-inline my-2 my-lg-0">

@@ -4,22 +4,14 @@ import {inject as service } from '@ember/service';
 export default Route.extend({
     session: service('session'),
     beforeModel: function() {
-      return this.get('session').fetch().catch(function() {});
+      this.get('session').fetch().catch(function() {});
+      this.get('session').close()
+      this.transitionTo('index')
     },
     actions: {
-      signIn: function(email, password) {
-        this.get('session').open('firebase', {
-            provider: 'password',
-            email: email,
-            password: password
-          });
-          this.transitionTo('index')
-      },
       signOut: function() {
         this.get('session').close();
         this.transitionTo('index')
       }
     }
 });
-
-

@@ -5,8 +5,7 @@ export default Controller.extend({
     type: 'freelancer',
     firebaseApp: inject(),
     actions: {
-        
-        signUp(first, last, email, password, address, address2, city, zip, accountType) {
+        signUp(first, last, email, password, address, address2, city, zip) {
             const auth = this.get('firebaseApp').auth();
             auth.createUserWithEmailAndPassword(email, password).then((userResponse) => {
                 if (this.type == 'freelancer') {
@@ -36,8 +35,9 @@ export default Controller.extend({
                     });
                   return user.save();
                 }
-              //this.transitionTo('login')
+              
             });
+            this.transitionTo('index')
           },
           radioChange(value) {
             this.set('type', value)

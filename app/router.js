@@ -13,6 +13,9 @@ Router.map(function() {
   this.route('find-work');
   this.route('privacy');
   this.route('terms');
+  this.route('logout');
+  this.route('account');
+  this.route('post-job');
 });
 
 export default Router;

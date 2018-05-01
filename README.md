@@ -1,7 +1,6 @@
 # project2
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Freelancer, a website to earn extra cash or hire a freelancer at an affordable price
 
 ## Prerequisites
 

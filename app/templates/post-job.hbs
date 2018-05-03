@@ -1,1 +1,68 @@
-{{outlet}}
+<section class="post-a-job">
+  <header>
+    <div class="container">
+      <h1>Tell us what you need done</h1>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputProjectName">Project Name</label>
+            {{input type='text' class='form-control' id='inputProjectName' placeholder='ex: Build a website' value=name}}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputDescription">Description</label>
+            {{textarea type='text' class='form-control' id='inputLastName' placeholder='Tell us about your project' value=description}}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEstimate">What is your estimated budget?</label>
+            {{input type='text' class='form-control' value=budget placeholder='$250'}}
+
+          </div>
+          
+        </div>
+        
+        <div class="form-row">
+          <legend class="col-form-label col-sm-2 pt-0">Pick a Project Category</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              {{#radio-button value="c" groupValue=category changed="radioChange"}}{{/radio-button}}
+              <label class="form-check-label" for="gridRadios1">C/C++/C#</label>
+            </div>
+            <div class="form-check">
+              {{#radio-button value="javascript" groupValue=category changed="radioChange"}}{{/radio-button}}
+              <label class="form-check-label" for="gridRadios2">JavaScript</label>
+            </div>
+            <div class="form-check">
+              {{#radio-button value="web" groupValue=category changed="radioChange"}}{{/radio-button}}
+              <label class="form-check-label" for="gridRadios2">HTML/CSS</label>
+            </div>
+            <div class="form-check">
+              {{#radio-button value="mobile" groupValue=category changed="radioChange"}}{{/radio-button}}
+              <label class="form-check-label" for="gridRadios2">iOS/Android</label>
+            </div>
+            <div class="form-check">
+              {{#radio-button value="java" groupValue=category changed="radioChange"}}{{/radio-button}}
+              <label class="form-check-label" for="gridRadios2">Java</label>
+            </div>
+            <div class="form-check">
+              {{#radio-button value="web_design" groupValue=category changed="radioChange"}}{{/radio-button}}
+              <label class="form-check-label" for="gridRadios2">Web Design</label>
+            </div>
+            <div class="form-check">
+              {{#radio-button value="other" groupValue=category changed="radioChange"}}{{/radio-button}}
+              <label class="form-check-label" for="gridRadios2">Other</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" {{action 'postProject' name description budget category session.currentUser.displayName}}>Post Project</button>
+      </form>
+    </div>
+  </section>
+
+</section>

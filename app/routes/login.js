@@ -12,8 +12,13 @@ export default Route.extend({
             provider: 'password',
             email: email,
             password: password
+          }).then((data) => {
+            console.log(data.currentUser)
+            this.transitionTo('index')
+          }).catch((err) => {
+            console.log("ERROR CAUGHT")
+            console.error(err)
           });
-          this.transitionTo('index')
       },
       signOut: function() {
         this.get('session').close();

@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object'
 
 export default DS.Model.extend({
     firebaseid: DS.attr('string'),
@@ -9,5 +10,10 @@ export default DS.Model.extend({
     address2: DS.attr('string'),
     city: DS.attr('string'),
     zip: DS.attr('string'),
-    type: DS.attr('string')
+    type: DS.attr('string'),
+    jobs: DS.hasMany('job'),
+    totalSpent: DS.attr('number', { defaultValue: 0 }),
+    fullName: computed('first', 'last', function() {
+        return `${this.get('first')} ${this.get('last')}`
+    })
 });

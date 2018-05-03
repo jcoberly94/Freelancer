@@ -11,19 +11,22 @@ export default Controller.extend({
       },
    
     actions: {
-        postJob(name, description, budget, user) {
-            
+        postJob(name, description, budget, category, user) {
+            user = this.get('session.currentUser.email')
+            console.log(`name: ${name}, description: ${description}, budget: ${budget}, user: ${user}`)
+
             const job = this.store.createRecord('job', {
-                firebaseid: userResponse.uid,
-                email: userResponse.email,
-                projectName: this.name,
-                description: this.description,
-                budget: this.budget,
+                clientEmail: this.get('session.currentUser.email'),
+                jobName: this.name,
+                jobDesc: this.description,
+                jobBudget: this.budget,
                 category: this.category
                 });
-            job.save();
+            job.save() 
+                
+            
        
-            this.transitionTo('index')
+            //this.transitionTo('index')
           },
           radioChange(value) {
             this.set('category', value)

@@ -9,6 +9,7 @@ export default Controller.extend({
     beforeModel: function() {
         return this.get('session').fetch().catch(function() {});
       },
+    
    
     actions: {
         postJob(name, description, budget, category, user) {
@@ -21,15 +22,13 @@ export default Controller.extend({
                 jobDesc: this.description,
                 jobBudget: this.budget,
                 category: this.category
-                });
-            job.save() 
-                
+            });
+            job.save()
             
-       
-            //this.transitionTo('index')
           },
           radioChange(value) {
             this.set('category', value)
           }
+          
     }
 });

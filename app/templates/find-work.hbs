@@ -31,7 +31,7 @@
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">C/C++</a>
+                      {{#link-to "find-work" (query-params category="c")}}C/C++/C#{{/link-to}}
                     </li>
                     <li>
                       {{#link-to "find-work" (query-params category="web")}}HTML/CSS{{/link-to}}
@@ -50,7 +50,10 @@
                       {{#link-to "find-work" (query-params category="java")}}Java{{/link-to}}
                     </li>
                     <li>
-                      <a href="#">Web Design</a>
+                      {{#link-to "find-work" (query-params category="web_design")}}Web Design{{/link-to}}
+                    </li>
+                    <li>
+                      {{#link-to "find-work" (query-params category="other")}}Other{{/link-to}}
                     </li>
                   </ul>
                 </div>
@@ -72,7 +75,7 @@
             <div class="card-body">
               <h2 class="card-title">{{job.jobName}}</h2>
               <p class="card-text">{{job.jobDesc}}</p>
-              <a href="#" class="btn btn-primary">Bid Now &rarr;</a>
+              {{#link-to "jobs" (query-params id=job.id) class="btn btn-primary"}}Bid Now &rarr;{{/link-to}}
             </div>
             <div class="card-footer text-muted">
               {{job.dateCreated}}

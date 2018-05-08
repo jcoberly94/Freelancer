@@ -1,0 +1,21 @@
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
+
+
+export default Controller.extend({
+    queryParams: ['id'],
+    id: null,
+    
+    jobID: computed('id', 'model', function() {
+        let id = this.get('id');
+        console.log("FOUND")
+        console.log(id)
+        let jobs = this.get('model');
+        
+        if (id) {
+          return jobs.filterBy('id', id);
+        } else {
+          return jobs
+        }
+      })
+});

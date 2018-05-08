@@ -10,11 +10,8 @@ export default Controller.extend({
         return this.get('session').fetch().catch(function() {});
       },
     
-   
     actions: {
-        postJob(name, description, budget, category, user) {
-            user = this.get('session.currentUser.email')
-            console.log(`name: ${name}, description: ${description}, budget: ${budget}, user: ${user}`)
+        postJob(name, description, budget, category) {
 
             const job = this.store.createRecord('job', {
                 clientEmail: this.get('session.currentUser.email'),

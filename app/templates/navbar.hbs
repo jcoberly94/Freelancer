@@ -7,10 +7,13 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      {{#link-to 'find-work' class="nav-item" tagName="li"}}
+      {{#link-to 'find-work' (query-params category=null) class="nav-item" tagName="li" }}
       <a class="nav-link" href="">Find Work</a>{{/link-to}} 
-      {{#link-to 'how-it-works' class="nav-item" tagName="li"}}
-      <a class="nav-link" href="">How It Works</a>{{/link-to}} 
+      {{!-- {{#link-to 'how-it-works' class="nav-item" tagName="li"}}
+      <a class="nav-link" href="">How It Works</a>{{/link-to}}  --}}
+      <li class="nav-item">
+        {{#link-to 'how-it-works' class="nav-link" tagName="a"}}How It Works{{/link-to}}
+      </li>
 
       {{#if session.isAuthenticated}}
         {{#link-to 'account' class="nav-item" tagName="li"}}<a class="nav-link" href="">My Account</a>{{/link-to}}

@@ -13,10 +13,8 @@ export default Route.extend({
             email: email,
             password: password
           }).then((data) => {
-            console.log(data.currentUser)
             this.transitionTo('index')
           }).catch((err) => {
-            console.log("ERROR CAUGHT")
             console.error(err)
           });
       },

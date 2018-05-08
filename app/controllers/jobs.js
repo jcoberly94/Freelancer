@@ -8,8 +8,6 @@ export default Controller.extend({
     
     jobID: computed('id', 'model', function() {
         let id = this.get('id');
-        console.log("FOUND")
-        console.log(id)
         let jobs = this.get('model');
         
         if (id) {

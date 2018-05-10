@@ -7,7 +7,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      {{#link-to 'find-work' (query-params category=null) class="nav-item" tagName="li" }}
+      {{#link-to 'find-work' (query-params category=null query=null) class="nav-item" tagName="li" }}
       <a class="nav-link" href="">Find Work</a>{{/link-to}} 
       {{!-- {{#link-to 'how-it-works' class="nav-item" tagName="li"}}
       <a class="nav-link" href="">How It Works</a>{{/link-to}}  --}}
@@ -29,8 +29,9 @@
     </form>
 
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search Jobs" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      {{input type='search' class='form-control mr-sm-2' value=search placeholder='Search Jobs' aria-label="Search"}}
+      {{#link-to "find-work" (query-params query = search) class="btn btn-outline-success my-2 my-sm-0"}}Search{{/link-to}}
+
     </form>
 
   </div>

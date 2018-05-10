@@ -11,10 +11,10 @@
           <form>
             <div class="form-row">
               <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="text" class="form-control form-control-lg" placeholder="What type of work are you looking for?">
+                  {{input type='search' class='form-control form-control-lg' value=search placeholder='What type of work are you looking for?' aria-label="Search"}}
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                {{#link-to "find-work" (query-params query = search) class="btn btn-block btn-lg btn-primary"}}Search{{/link-to}}
               </div>
             </div>
           </form>

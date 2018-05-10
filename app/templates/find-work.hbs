@@ -17,7 +17,7 @@
                 {{input type='text' class='form-control' value=search placeholder='Search for...'}}
 
                 <span class="input-group-btn">
-                  <button class="btn btn-primary" type="button" {{action 'searchJobs'}}>Go!</button>
+                  {{#link-to "find-work" (query-params query=search category=null) class="btn btn-primary"}}Go!{{/link-to}}
                 </span>
               </div>
             </div>
@@ -31,29 +31,29 @@
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      {{#link-to "find-work" (query-params category="c")}}C/C++/C#{{/link-to}}
+                      {{#link-to "find-work" (query-params category="c" query = null)}}C/C++/C#{{/link-to}}
                     </li>
                     <li>
-                      {{#link-to "find-work" (query-params category="web")}}HTML/CSS{{/link-to}}
+                      {{#link-to "find-work" (query-params category="web" query = null)}}HTML/CSS{{/link-to}}
                     </li>
                     <li>
-                      {{#link-to "find-work" (query-params category="mobile")}}iOS/Android{{/link-to}}
+                      {{#link-to "find-work" (query-params category="mobile" query = null)}}iOS/Android{{/link-to}}
                     </li>
                   </ul>
                 </div>
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      {{#link-to "find-work" (query-params category="javascript")}}JavaScript{{/link-to}}
+                      {{#link-to "find-work" (query-params category="javascript" query = null)}}JavaScript{{/link-to}}
                     </li>
                     <li>
-                      {{#link-to "find-work" (query-params category="java")}}Java{{/link-to}}
+                      {{#link-to "find-work" (query-params category="java" query = null)}}Java{{/link-to}}
                     </li>
                     <li>
-                      {{#link-to "find-work" (query-params category="web_design")}}Web Design{{/link-to}}
+                      {{#link-to "find-work" (query-params category="web_design" query = null)}}Web Design{{/link-to}}
                     </li>
                     <li>
-                      {{#link-to "find-work" (query-params category="other")}}Other{{/link-to}}
+                      {{#link-to "find-work" (query-params category="other" query = null)}}Other{{/link-to}}
                     </li>
                   </ul>
                 </div>
@@ -68,8 +68,11 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8 job-posting">
 
-          
 
+          {{#if filteredJobs}}
+            {{#if searching_for}}
+              <p>Showing results for: <strong>{{searching_for}}</strong></p>
+            {{/if}}
           {{#each filteredJobs as |job|}}
           <div class="card mb-4">
             <div class="card-body">
@@ -84,7 +87,7 @@
           </div>
           {{/each}}
 
-        <nav aria-label="Page navigation example">
+          <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -92,7 +95,12 @@
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
             </ul>
-        </nav>
+          </nav>
+          {{else}}
+            <p>No results found for: <strong>{{searching_for}}</strong></p>
+          {{/if}}
+
+
 
         </div>
 

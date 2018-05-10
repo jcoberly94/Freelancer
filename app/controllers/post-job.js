@@ -21,6 +21,7 @@ export default Controller.extend({
                 category: this.category
             });
             job.save()
+            this.transitionTo('find-work');
             
           },
           radioChange(value) {

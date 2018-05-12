@@ -8,9 +8,8 @@ export default DS.Model.extend({
     jobBudget: DS.attr('number'),
     category: DS.attr('string'),
     bids: DS.hasMany('bid', { async: true, inverse: null }),
-    freelancers: DS.hasMany('freelancer'),
     dateCreated: DS.attr('date', { 
         defaultValue() { return new Date(); }
     }),
-    client: DS.belongsTo('client', { async: true, inverse: null })
+    client: DS.belongsTo('user', { async: true, inverse: null })
 });

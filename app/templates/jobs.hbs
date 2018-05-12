@@ -14,10 +14,11 @@
             <h3 class="card-title">{{job.jobName}}</h3>
             <h4>Estimated Budget: ${{job.jobBudget}}</h4>
             <p class="card-text">{{job.jobDesc}}</p>
-            <button class="btn btn-primary">Bid Now</button>
+            
             <div class="form-group">
+              <button class="btn btn-primary" type="submit" {{action 'bidNow' amount}}>Bid Now</button>
               <label for="exampleDropdownFormEmail1">Amount</label>
-              <input type="text" class="form-control" id="amount" placeholder="$700">
+              {{input type="text" class="form-control" id="amount" placeholder="$700" value=bidAmount}}
             </div>
     
 
@@ -28,19 +29,21 @@
         <!-- /.card -->
 
 
-
+        {{#each bidders as |bid|}}
         <div class="card mb-4">
           <div class="card-header">
             Freelancers Bidding
           </div>
           <div class="card-body">
-            <h2 class="card-title">Name</h2>
-            <p class="card-text">Bid Amount: $</p>
+            <h2 class="card-title">{{bid.freelancerID}}</h2>
+            <p class="card-text">Bid Amount: ${{bid.bidAmount}}</p>
           </div>
           <div class="card-footer text-muted">
-            Date Posted:
+            Date Posted: {{bid.dateCreated}}
           </div>
         </div>
+
+        {{/each}}
 
       </div>
       <!-- /.col-lg-9 -->

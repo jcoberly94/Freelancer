@@ -6,12 +6,15 @@ import { inject } from '@ember/service';
 export default Controller.extend({
     category: 'other',
     firebaseApp: inject('session'),
+    client: '',
     beforeModel: function() {
         return this.get('session').fetch().catch(function() {});
       },
     
     actions: {
         postJob(name, description, budget, category) {
+
+
 
             const job = this.store.createRecord('job', {
                 clientEmail: this.get('session.currentUser.email'),
@@ -20,8 +23,18 @@ export default Controller.extend({
                 jobBudget: this.budget,
                 category: this.category
             });
-            job.save()
-            this.transitionTo('find-work');
+
+            this.get('store').query('user', {
+                orderBy: 'email', 
+                equalTo: this.get('session.currentUser.email')
+            
+            }).then(function(data) {
+                let client = data.get('firstObject')
+                client.get('jobs').addObject(job)
+                job.save()   
+            })
+            this.transitionTo('find-work')
+            
             
           },
           radioChange(value) {

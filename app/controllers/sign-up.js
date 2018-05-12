@@ -9,7 +9,7 @@ export default Controller.extend({
             const auth = this.get('firebaseApp').auth();
             auth.createUserWithEmailAndPassword(email, password).then((userResponse) => {
                 if (this.type == 'freelancer') {
-                    const user = this.store.createRecord('freelancer', {
+                    const user = this.store.createRecord('user', {
                     firebaseid: userResponse.uid,
                     email: userResponse.email,
                     first: this.first,
@@ -22,7 +22,7 @@ export default Controller.extend({
                 });
                     return user.save();
                 } else {
-                    const user = this.store.createRecord('client', {
+                    const user = this.store.createRecord('user', {
                         firebaseid: userResponse.uid,
                         email: userResponse.email,
                         first: this.first,

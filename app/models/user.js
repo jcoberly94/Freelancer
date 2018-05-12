@@ -12,6 +12,7 @@ export default DS.Model.extend({
     zip: DS.attr('string'),
     type: DS.attr('string'),
     jobs: DS.hasMany('job', { async: true, inverse: null }),
+    bids: DS.hasMany('bid', { async: true, inverse: null }),
     totalSpent: DS.attr('number', { defaultValue: 0 }),
     fullName: computed('first', 'last', function() {
         return `${this.get('first')} ${this.get('last')}`

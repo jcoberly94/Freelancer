@@ -11,7 +11,7 @@ export default DS.Model.extend({
     city: DS.attr('string'),
     zip: DS.attr('string'),
     type: DS.attr('string'),
-    bids: DS.hasMany('bid', { async: true, inverse: null }),
+    //,
     fullName: computed('first', 'last', function() {
         return `${this.get('first')} ${this.get('last')}`
     })

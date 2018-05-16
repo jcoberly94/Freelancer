@@ -1,6 +1,6 @@
 $button-primary: #2ecc71;
 $button-primary-hover: #27ae60;
-
+$button-disabled: rgb(0, 0, 0);
 .btn-xl {
   text-transform: uppercase;
   padding: 1.5rem 3rem;
@@ -8,23 +8,26 @@ $button-primary-hover: #27ae60;
   font-weight: 700;
   letter-spacing: 0.1rem;
 }
-
 .rounded-pill {
   border-radius: 5rem;
 }
-
 .btn-primary {
   background-color: $button-primary;
   border-color: $button-primary;
 }
-
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
   background-color: $button-primary-hover;
   border-color: $button-primary-hover;
 }
-
+.btn-primary:disabled {
+  background-color: $button-disabled;
+  border-color: $button-disabled;
+  &:hover {
+    background-color: $button-disabled;
+  }
+}
 .post-job {
   text-decoration: none;
   color: $button-primary-hover;

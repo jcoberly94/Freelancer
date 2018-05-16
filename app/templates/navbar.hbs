@@ -7,10 +7,10 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      {{#if session.isAuthenticated}}
       {{#link-to 'find-work' (query-params category=null query=null) class="nav-item" tagName="li" }}
       <a class="nav-link" href="">Find Work</a>{{/link-to}} 
-      {{!-- {{#link-to 'how-it-works' class="nav-item" tagName="li"}}
-      <a class="nav-link" href="">How It Works</a>{{/link-to}}  --}}
+      {{/if}}
       <li class="nav-item">
         {{#link-to 'how-it-works' class="nav-link" tagName="a"}}How It Works{{/link-to}}
       </li>
@@ -24,6 +24,7 @@
       {{/if}}
     </ul>
     
+    {{#if session.isAuthenticated}}
     <form class="form-inline my-2 my-lg-0" style="padding-right: 25px;">
       <button class="btn btn-outline-success" type="button">{{#link-to 'post-job' class="post-job"}}Post a Job{{/link-to}}</button>
     </form>
@@ -31,8 +32,8 @@
     <form class="form-inline my-2 my-lg-0">
       {{input type='search' class='form-control mr-sm-2' value=search placeholder='Search Jobs' aria-label="Search"}}
       {{#link-to "find-work" (query-params query = search) class="btn btn-outline-success my-2 my-sm-0"}}Search{{/link-to}}
-
     </form>
+    {{/if}}
 
   </div>
 </nav>

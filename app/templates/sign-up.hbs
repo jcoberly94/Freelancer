@@ -5,13 +5,15 @@
     </div>
   </header>
 
+
+
   <section>
     <div class="container">
       <form>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputFirstName">First Name</label>
-            {{input type='text' class='form-control' id='inputFirstName' placeholder='First Name' value=first}}
+            {{input type='text' class='form-control' id='inputFirstName' placeholder='First Name' value=first autofocus="autofocus"}}
           </div>
           <div class="form-group col-md-6">
             <label for="inputLastName">Last Name</label>
@@ -21,13 +23,18 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            {{input type='text' class='form-control' value=email placeholder='email'}}
-
+            <label for="inputEmail4">Email</label>  
+            {{#if shouldFlagEmail}}
+            <label for="inputEmail4"> - Invalid!</label>
+            {{/if}}
+            {{input type='text' id='stupidEmail' class='form-control' value=email placeholder='Email'}}
           </div>
           <div class="form-group col-md-6">
             <label for="inputPassword4">Password</label>
-            {{input type='password' class='form-control' value=password placeholder='password'}}
+            {{#if shouldFlagPassword }}
+            <label for="inputEmail4"> - Invalid! Must be at least 6 characters.</label>
+            {{/if}}
+            {{input type='password' id='stupidPassword' class='form-control' value=password placeholder='Password'}}
           </div>
         </div>
         <div class="form-group">
@@ -36,7 +43,7 @@
         </div>
         <div class="form-group">
           <label for="inputAddress2">Address 2</label>
-          {{input type='text' class='form-control' id='inputAddress2' placeholder='Apt 231' value=address2}}
+          {{input type='text' class='form-control' id='inputAddress2' placeholder='Apt. 123' value=address2}}
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -47,7 +54,56 @@
             <label for="inputState">State</label>
             <select id="inputState" class="form-control">
               <option selected>Choose...</option>
-              <option>...</option>
+              <option>Alabama</option>
+              <option>Alaska</option>
+              <option>Arizona</option>
+              <option>Arkansas</option>
+              <option>California</option>
+              <option>Colorado</option>
+              <option>Connecticut</option>
+              <option>Delaware</option>
+              <option>Florida</option>
+              <option>Georgia</option>
+              <option>Hawaii</option>
+              <option>Idaho</option>
+              <option>Illinois</option>
+              <option>Indiana</option>
+              <option>Iowa</option>
+              <option>Kansas</option>
+              <option>Kentucky</option>
+              <option>Louisiana</option>
+              <option>Maine</option>
+              <option>Maryland</option>
+              <option>Massechussetts</option>
+              <option>Michigan</option>
+              <option>Minnesota</option>
+              <option>Mississippi</option>
+              <option>Missouri</option>
+              <option>Montana</option>
+              <option>Nebraska</option>
+              <option>Nevada</option>
+              <option>New Hampshire</option>
+              <option>New Jersey</option>
+              <option>New Mexico</option>
+              <option>New York</option>
+              <option>North Carolina</option>
+              <option>North Dakota</option>
+              <option>Ohio</option>
+              <option>Oklahoma</option>
+              <option>Oregon</option>
+              <option>Pennsylvania</option>
+              <option>Rhode Island</option>
+              <option>South Carolina</option>
+              <option>South Dakota</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Utah</option>
+              <option>Vermont</option>
+              <option>Virginia</option>
+              <option>Washington</option>
+              <option>West Virgina</option>
+              <option>Wisconsin</option>
+              <option>Wyoming</option>
             </select>
           </div>
           <div class="form-group col-md-2">
@@ -72,7 +128,7 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" {{action 'signUp' first last email password address address2 city zip}}>Sign Up</button>
+        <button type="submit" class="btn btn-primary" disabled={{isDisabled}} {{action 'signUp' first last email password address address2 city zip}}>Sign Up</button>
       </form>
     </div>
   </section>

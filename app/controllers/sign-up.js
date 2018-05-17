@@ -40,7 +40,7 @@ export default Controller.extend({
                 }
               
             });
-            this.transitionTo('index');
+            this.transitionToRoute('login');
           },
           radioChange(value) {
             this.set('type', value);

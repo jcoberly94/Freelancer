@@ -37,6 +37,7 @@ export default Controller.extend({
             freelancerID: this.get('session.currentUser.email')
           })
           return bid.save()
+          this.transitionToRoute('account')
           
         }
       }

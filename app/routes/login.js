@@ -15,7 +15,6 @@ export default Route.extend({
           }).then((data) => {
             this.transitionTo('index')
           }).catch((err) => {
-            console.error(err)
           });
       },
       signOut: function() {

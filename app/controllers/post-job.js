@@ -33,7 +33,7 @@ export default Controller.extend({
                 client.get('jobs').addObject(job)
                 job.save()   
             })
-            this.transitionTo('find-work')
+            this.transitionToRoute('find-work')
             
             
           },

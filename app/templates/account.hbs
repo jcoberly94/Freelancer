@@ -40,26 +40,6 @@
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Bids</h5>
                             <table class="table table-sm table-hover table-striped">
                                 <tbody>                                    
-                                    <tr>
-                                        <td>
-                                            <strong>$250</strong> Website redesign
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>$350</strong> Custom desktop application
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>$500</strong> Create Web API 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>$700</strong> iOS/Andriod application developer needed
-                                        </td>
-                                    </tr>
                                     {{#each bids as |bid|}}
                                     <tr>
                                         <td>
@@ -89,58 +69,46 @@
                         </tbody> 
                     </table>
                 </div>
-                <div class="tab-pane" id="edit">
+                <div class="tab-pane" id="edit">{{#each users as |user|}}
                     <form role="form">
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="jane">
+                                <input class="form-control" type="text" placeholder={{user.first}}>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Bishop">
+                                <input class="form-control" type="text" placeholder={{user.last}}>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Email</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="email@gmail.com">
+                                <input class="form-control" type="email" placeholder={{user.email}}>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="" placeholder="Street">
+                                <input class="form-control" type="text" placeholder={{user.address}}>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-6">
-                                <input class="form-control" type="text" value="" placeholder="City">
+                                <input class="form-control" type="text" placeholder={{user.city}}>
                             </div>
                             <div class="col-lg-3">
-                                <input class="form-control" type="text" value="" placeholder="State">
+                                <input class="form-control" type="text" placeholder={{user.zip}}>
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Username</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="janeuser">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
+                                <input class="form-control" type="text" placeholder={{user.email}}>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -150,7 +118,9 @@
                                 <input type="button" class="btn btn-primary" value="Save Changes">
                             </div>
                         </div>
+
                     </form>
+                    {{/each}}
                 </div>
             </div>
         </div>

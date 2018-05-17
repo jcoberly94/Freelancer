@@ -17,7 +17,8 @@ export default Route.extend({
             bids: this.store.query('bid', {
                 orderBy: 'freelancerID',
                 equalTo: this.get('session.currentUser.email')
-            })
+            }),
+            jobs: this.store.findAll('job')
         })
       }
 });

@@ -9,8 +9,21 @@ export default Controller.extend({
     firebaseApp: inject('session'),
 
       bids: computed('id', 'model.bids', function() {
-        let id = this.get('id');
+        let id = this.get('model.bids.jobID');
         let bid = this.get('model.bids')
         return bid
+      }),
+      jobs: computed('model.jobs', function() {
+          let id = this.get('id')
+          let jobs = this.get('model.jobs')
+          if (id) {
+              return jobs.filterBy('id', id)
+          } else {
+              return jobs
+          }
+      }),
+      users: computed('id', 'model.user', function () {
+          let user = this.get('model.user')
+          return user
       })
 });
